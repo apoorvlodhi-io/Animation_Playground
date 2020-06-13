@@ -1,4 +1,4 @@
-# flutteranimationbasics
+# Flutter Animation Basics
 
 A new Flutter application.
 
