@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class AnimationThree extends StatelessWidget {
+class AnimationThree extends StatefulWidget {
   static const String id = 'AnimationThree';
+
+  @override
+  _AnimationThreeState createState() => _AnimationThreeState();
+}
+
+class _AnimationThreeState extends State<AnimationThree> {
   Tween<double> _scaleTween = Tween<double>(begin: 1, end: 2);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

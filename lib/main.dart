@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:math';
 import 'package:flutteranimationbasics/AnimationOne.dart';
+import 'package:flutteranimationbasics/AnimationThree.dart';
 import 'package:flutteranimationbasics/AnimationTwo.dart';
 
 void main() => runApp(MyApp());
@@ -16,6 +19,7 @@ class MyApp extends StatelessWidget {
       routes: {
         AnimationOne.id: (context) => AnimationOne(),
         AnimationTwo.id: (context) => AnimationTwo(),
+        AnimationThree.id: (context) => AnimationThree(),
       },
       home: MainPage(),
     );
@@ -33,26 +37,73 @@ class MainPage extends StatelessWidget {
         appBar: AppBar(
           title: Text('Animation Basics'),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              RaisedButton(
-                child: Text('Animation1'),
-                onPressed: () {
-                  Navigator.pushNamed(context, AnimationOne.id);
-                },
-              ),
-              RaisedButton(
-                child: Text('Animation2'),
-                onPressed: () {
-                  Navigator.pushNamed(context, AnimationTwo.id);
-                },
-              ),
-            ],
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: FlatButton(
+                        child: Text(
+                          'Animation1',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        color: UniqueColor.getColor(),
+                        onPressed: () {
+                          Navigator.pushNamed(context, AnimationOne.id);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: FlatButton(
+                        child: Text(
+                          'Animation2',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        color: UniqueColor.getColor(),
+                        onPressed: () {
+                          Navigator.pushNamed(context, AnimationTwo.id);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: FlatButton(
+                        child: Text(
+                          'Animation3',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        color: UniqueColor.getColor(),
+                        onPressed: () {
+                          Navigator.pushNamed(context, AnimationThree.id);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
+  }
+}
+
+class UniqueColor {
+  static Random random = Random();
+  static Color getColor() {
+    return Color.fromRGBO(
+        random.nextInt(256), random.nextInt(256), random.nextInt(256), 1);
   }
 }
